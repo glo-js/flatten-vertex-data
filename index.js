@@ -34,9 +34,8 @@ function flattenVertexData (data, output, offset) {
       var Ctor = dtype(output || 'float32')
 
       // handle arrays separately due to possible nulls
-      if (Array.isArray(data)) {
+      if (Array.isArray(data) || output === 'array') {
         output = new Ctor(data.length + offset)
-
         for (i = 0, k = offset, l = output.length; k < l; k++, i++) {
           output[k] = data[i] === null ? NaN : data[i]
         }

@@ -30,6 +30,8 @@ test('flattens nested vertex data into a typed array', function (t) {
   t.equal(flatten([ 2, 4, 4, 8 ], existing), existing, 'sends to existing')
   t.deepEqual(existing, new Float32Array([2, 4, 4, 8]), 'sends to existing typed array')
 
+  t.deepEqual(flatten(new Float32Array([0, 1, 2, 3]), 'array'), [0, 1, 2, 3])
+
   t.throws(flatten.bind(null), 'no arg throws err')
 
   t.end()
