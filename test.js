@@ -31,6 +31,15 @@ test('flattens nested vertex data into a typed array', function (t) {
   t.deepEqual(existing, new Float32Array([2, 4, 4, 8]), 'sends to existing typed array')
 
   t.throws(flatten.bind(null), 'no arg throws err')
+
+  t.end()
+})
+
+test('handles bad values', function (t) {
+  /*eslint no-sparse-arrays: 0*/
+  t.ok(flatten([, NaN, undefined, null]).every(isNaN))
+  t.ok(flatten([[, NaN], [undefined, null]]).every(isNaN))
+
   t.end()
 })
 
