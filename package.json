@@ -1,6 +1,6 @@
 {
   "name": "flatten-vertex-data",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "flattens nested vertex data into a typed array",
   "main": "index.js",
   "license": "MIT",
